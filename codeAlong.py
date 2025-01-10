@@ -2,7 +2,6 @@ import requests
 import os 
 
 api_key = os.getenv("OPEN_AI_KEY1")
-print(f"key is {api_key}")
 
 url = "https://api.openai.com/v1/chat/completions"
 
@@ -16,20 +15,25 @@ data = {
     "messages": [
         {
             "role": "system",
-        "content": "You are a helpful assistant that translate from English to French"
+        "content": "You are a helpful assistant"
         },
         {
             "role":"user",
-            "content":"Hello, how are you?"
+            "content":"{prompt}"
         }
     ],
-    "max_tokens": 60,
-    "temperature": 0.7,
+    "max_tokens": 256,
+    "temperature": 0.0,
 }
 
-# response = requests.post(url, json=data, headers=headers)
-# if response.status_code == 200:
-#     print(response.json())
-# else:
-#     print(f"Failed {response.status_code}: {response.text}")
+def generate(prompt):
+    data['messages'][1]['content'] = prompt
 
+    response = requests.post(url, json=data, headers=headers)
+    if response.status_code == 200:
+        content = response.json()["choices"][0]["message"]["content"]
+        print(content)
+    else:
+        print(f"Failed {response.status_code}: {response.text}")
+
+generate( "What is the name of the Towards AI developed largest open-source model and what is its size?" )
