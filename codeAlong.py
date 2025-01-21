@@ -1,6 +1,7 @@
 import requests
 import os 
 
+
 api_key = os.getenv("OPEN_AI_KEY1")
 
 url = "https://api.openai.com/v1/chat/completions"
@@ -25,6 +26,11 @@ data = {
     "max_tokens": 256,
     "temperature": 0.0,
 }
+
+
+
+
+
 
 def generate(prompt):
     data['messages'][1]['content'] = prompt

@@ -1,0 +1,31 @@
+RAG
+    Retrival Augmented Generation - custom ai 
+        customize an existing model with specific data and answer params
+
+Causes for 'hallucinations':
+    incomplete or inacurate responses based on... 
+        1 'knowledge cut-off'
+        2 limited context window: memory, # of tokens proccessed simultaneously, intensive, has diminishing returns after ~8k
+        3 limited reasoning: chain-of-thought prompting with 'thinking-tokens' uses resoning datasets 
+
+Chooisng LLM Model:
+    proprietary (paid APIs), open-weights (architecture and weight are public), open-source (training data, code evaluation, everything public)
+    token cost, fine tuning?, benchmarking, modality, vocabulary (tokenization), 
+    benchmarking:
+        MMLU: Massove Multitask Language Understanding
+        HumanEval: code generation capabilities 
+        GPQA: Graduate Proof Q&A --> Jepordy knowldege 
+        LiveBench: comprehension accuracy
+        AIME: 
+
+Injections:
+    security measures: input validation, two-stage pipeline 
+
+Prompting:
+    Methods:
+        LLM as Judge - LLM reviews it's own answers for compliance
+            Few-shot prompting 
+        Testing - edge cases, temp variation, version mgmnt
+
+Resources:
+    gpt no code or cost playground - https://platform.openai.com/playground/chat?models=gpt-4o

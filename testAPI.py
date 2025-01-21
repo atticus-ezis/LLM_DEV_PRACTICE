@@ -8,8 +8,8 @@ completion = client.chat.completions.create(
   model="gpt-4o-mini",
   store=True,
   messages=[
-    {"role": "user", "content": "write a haiku about ai"}
+    {"role": "user", "content": "How AI can help my project?"}
   ]
 )
 
-print(completion.choices[0].message);
+print(completion.choices[0].message)
