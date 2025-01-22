@@ -1,0 +1,7 @@
+RAG pipeline
+    1. Retrieval mechanism - creates embedding, finds info 
+    2. Augmentation - combines info with query 
+    3. LLM Generation - answer 
+
+Sub Question Query Engine 
+    breaks query into sub questions, combines answers
